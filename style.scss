@@ -1,0 +1,362 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+    /* font-family: 'DM Sans', Arial, sans-serif; */
+    font-family: 'DM Sans', Arial, sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'DM Sans', Arial, sans-serif;
+
+    overflow-x: hidden;
+
+    background-color: #eeeeee;
+}
+
+
+#background {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    background-color: #eeeeee;
+}
+.preloaded-image {
+    z-index: -2;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+#iconbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 15px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 3;
+}
+.iconbar__icon {
+    /* width: 70px; */
+    width: calc(1.5vw + 40px);
+    height: calc(1.5vw + 40px);
+}
+
+#iconbar__logo__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+
+    font-size: 1.9rem;
+    font-weight: 800;
+
+    align-self: start;
+}
+#iconbar__name {
+    transition: opacity 0.5s;
+}
+
+.invisible {
+    opacity: 0 !important;
+}
+.unselectable {
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+#iconbar__grid {
+    scale: 75%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    gap: calc((1.5vw + 40px) / 20);
+
+    justify-self: end;
+
+    cursor: pointer;
+}
+#iconbar__grid img {
+    width: 100%;
+    position: relative;
+}
+#iconbar__grid:hover img {
+    animation: bounce 0.25s forwards;
+}
+
+@keyframes bounce {
+    0% { bottom: 0px }
+    50% { bottom: 10px }
+    100% { bottom: 0 }
+}
+
+@for $i from 1 through 9 {
+    #iconbar__grid:hover img:nth-child(#{$i}) {
+      animation-delay: ($i - 1) * 0.05s;
+    }
+}
+
+#iconbar__logo {
+    transition: transform 0.5s;
+    /* transition-timing-function: ; */
+    transform: rotate(0deg);
+}
+#iconbar__logo:hover {
+    transform: rotate(360deg);
+}
+
+.circle {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    opacity: 0.2;
+    z-index: 1;
+    
+    grid-column: 2/3;
+}
+.active {
+    opacity: 0.5 !important;
+}
+#circle-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    justify-self: center;
+    align-self: end;
+    gap: 15px;
+
+    position: fixed;
+    margin: 0 50% 0 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+.arrow {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 1;
+}
+#left {
+    left: 0;
+}
+#right {
+    right: 0;
+    transform: rotate(180deg);
+}
+.arrow-gradient {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    opacity: 0;
+    transition: opacity 0.25s;
+
+    background: linear-gradient(270deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 65%, rgba(0,0,0,1) 100%);
+}
+.arrow:hover .arrow-gradient {
+    opacity: 0.15;
+}
+.arrow img {
+    height: calc(1vw + 30px);
+    padding-left: 35px;
+    padding-right: 130px;
+
+    position: relative;
+    
+    right: 0;
+    transition: right 0.25s;
+    transition-timing-function: ease-out;
+}
+.arrow:hover img {
+    right: 10%;
+}
+
+
+#carousel {
+    width: 300%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+
+    scroll-snap-type: x mandatory;
+
+    position: relative;
+    transition: right 0.5s ease;
+}
+.carousel--instant {
+    transition: right 0s !important;
+}
+
+.carousel__focused {
+    display: flex !important;
+    grid-column: 2 / 3;
+}
+.carousel__first {
+    grid-column: 1 / 2 !important;
+}
+.carousel__third {
+    grid-column: 3 / 4 !important;
+}
+.carousel__transitioning {
+    display: flex !important;
+}
+
+.carousel__project {
+    width: 100%;
+
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+    padding-bottom: 60px;
+
+    scroll-snap-align: center;
+
+    grid-row: 1 / 2;
+}
+.work {
+    max-width: min(1000px, 70vw);
+    max-height: calc(100vh - 120px);
+}
+
+.work-subcontainer {
+    max-width: min(1000px, 70vw);
+    max-height: calc(100vh - 120px);
+
+    display: grid;
+    gap: 10px;
+}
+.work-subcontainer .work {
+    width: 100%;
+}
+
+.work-caption-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 42ch;
+
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 25px;
+    border: 1px solid black;
+}
+.work-caption-text:last-child {
+    margin-bottom: 0;
+}
+.work-first-wrapper {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#grid {
+    z-index: 2;
+    background-color: #eeeeee;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+#grid__works {
+    display: grid;
+    gap: 7.5px;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    width: clamp(500px, 60vw, 750px);
+
+    margin: 30px;
+}
+.grid__works__square {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    opacity: 0;
+}
+.grid__works__image {
+    // position: absolute;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+
+    background-size: cover;
+    background-position: center;
+
+    transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.grid__works__square--animation {
+    animation: square-pop 0.5s forwards;
+    animation-timing-function: ease;
+    // display: inline-block !important;
+}
+.grid__works__image:hover {
+    box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.3);
+    transform: scale(1.15);
+}
+@keyframes square-pop {
+    0% {
+        opacity: 0;
+        transform: rotate(15deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+@for $i from 1 through 6 {
+    .grid__works__square:nth-child(#{$i}) {
+      animation-delay: ($i - 1) * 0.08s;
+    }
+}

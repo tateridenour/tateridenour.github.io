@@ -31,7 +31,6 @@ function scrollCarousel(direction) {
 
         if (transitioning == null) {
             transitioning = document.querySelector('.carousel__project:first-child');
-            console.log(transitioning);
             // going right wraps around to start
         }
 
@@ -39,6 +38,8 @@ function scrollCarousel(direction) {
     }
 
     transitioning.classList.add('carousel__transitioning');
+    updateCircles();
+
     timeout = setTimeout(() => {
         scrollCarouselFinalize(focused, transitioning);
         timeout = null;
@@ -70,4 +71,102 @@ for (i = 0; i < carousel.children.length; i++) {
     const div = document.createElement('div');
     div.classList.add('circle');
     circleWrapper.append(div);
+}
+
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        scrollCarousel('left');
+    }
+    if (e.key === 'ArrowRight') {
+        scrollCarousel('right');
+    }
+});
+
+
+const iconbarName = document.getElementById('iconbar__name');
+document.addEventListener('scroll', (e) => {
+    const scrolled = window.scrollY || window.pageYOffset;
+    // console.log(scrolled);
+
+    if (scrolled == 0 && iconbarName.classList.contains('invisible')) {
+        iconbarName.classList.remove('invisible');
+    }
+    if (scrolled != 0 && !iconbarName.classList.contains('invisible')) {
+        // iconbarName.classList.add('invisible');
+    }
+})
+
+
+const projects = document.querySelectorAll('.carousel__project');
+function updateCircles() {
+    const index = Array.prototype.indexOf.call(projects, document.querySelector('.carousel__transitioning'));
+    // function is called during transition
+
+    const activeCircles = document.querySelectorAll('.circle.active');
+    [...activeCircles].forEach(div => {
+        div.classList.remove('active');
+    });
+    document.querySelector(`.circle:nth-child(${index + 1})`).classList.add('active');
+}
+document.querySelector(`.circle:nth-child(1)`).classList.add('active');
+
+const grid = document.getElementById('grid');
+const gridWorks = document.getElementById('grid__works');
+const body = document.querySelector('body');
+let n = 0;
+[...projects].forEach(project => {
+
+    const div1 = document.createElement('div');
+    div1.classList.add('grid__works__square');
+    
+    n++;
+    div1.setAttribute('onClick', `setCarouselTo(${n}); toggleGrid();`);
+
+    const div2 = document.createElement('div');
+    div2.style.backgroundImage = `url('${project.querySelector('img.preview').getAttribute('src')}')`
+    div2.classList.add('grid__works__image');
+    div1.appendChild(div2);
+    gridWorks.appendChild(div1);
+
+});
+function toggleGrid() {
+
+    if (grid.style.opacity === '1') {
+
+        console.log('sdfsf')
+
+        // make grid invisible
+        window.scrollTo(0, 0);
+        grid.style.opacity = '0';
+        setTimeout(function() {
+            grid.style.display = 'none';
+        }, 250);
+        [...document.querySelectorAll('.grid__works__square')].forEach(square => {
+            square.classList.add('grid__works__square--animation');
+        })
+
+    } else {
+
+        // make grid visible
+        grid.style.display = 'flex';
+        setTimeout(function() {
+            grid.style.opacity = '1';
+        }, 1);
+
+    }
+}
+[...document.querySelectorAll('.grid__works__square')].forEach(square => {
+    square.classList.add('grid__works__square--animation');
+})
+
+function setCarouselTo(n) {
+
+    const target = document.querySelector(`#carousel .carousel__project:nth-child(${n})`);
+    [...projects].forEach(div => {
+        div.classList.remove('carousel__focused');
+        div.classList.remove('carousel__transitioning');
+    });
+    target.classList.add('carousel__focused');
+
 }
