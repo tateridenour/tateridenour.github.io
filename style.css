@@ -12,8 +12,12 @@ html {
 }
 
 body {
-  font-size: min(1.6rem, 0.8rem + 1vw);
+  font-size: 1.6rem;
   font-family: "DM Sans", Arial, sans-serif;
+}
+
+#wrapper {
+  width: 100%;
   overflow-x: hidden;
   background-color: #eeeeee;
 }
@@ -35,8 +39,8 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  max-width: 100vw;
-  max-height: 100vh;
+  width: 50vw;
+  height: auto;
 }
 
 #iconbar {
@@ -601,4 +605,25 @@ body {
 .footer p:first-child {
   -ms-grid-column-align: right;
       justify-self: right;
+}
+
+@media (pointer: none), (pointer: coarse) {
+  body {
+    font-size: 3rem;
+  }
+  .work-caption-text {
+    width: 70vw;
+  }
+  .work-first-wrapper {
+    height: auto;
+    padding-top: 120px;
+    padding-bottom: 45px;
+  }
+  .iconbar__icon {
+    width: 85px;
+    height: 85px;
+  }
+  #iconbar__name {
+    font-size: 3rem;
+  }
 }
