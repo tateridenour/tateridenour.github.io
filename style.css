@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: min(1.6rem, 0.8rem + 1vw);
   font-family: "DM Sans", Arial, sans-serif;
   overflow-x: hidden;
   background-color: #eeeeee;
@@ -60,8 +60,8 @@ body {
 
 .iconbar__icon {
   /* width: 70px; */
-  width: calc(1.5vw + 40px);
-  height: calc(1.5vw + 40px);
+  width: calc(1.6vw + 30px);
+  height: calc(1.6vw + 30px);
 }
 
 #iconbar__logo__wrapper {
@@ -72,11 +72,11 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  gap: 1rem;
+  gap: min(1rem, 0.5vw + 0.5rem);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.9rem;
+  font-size: min(1.9rem, 2.2vw + 0.8rem);
   font-weight: 800;
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
@@ -285,6 +285,7 @@ body {
   bottom: 15px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  z-index: 3;
 }
 
 .arrow {
@@ -333,8 +334,8 @@ body {
 
 .arrow img {
   height: calc(1vw + 30px);
-  padding-left: 35px;
-  padding-right: 130px;
+  padding-left: min(35px, 5vw);
+  padding-right: min(130px, 14vw);
   position: relative;
   right: 0;
   -webkit-transition: right 0.25s;
@@ -405,7 +406,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
-  padding-bottom: 60px;
   scroll-snap-align: center;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -439,9 +439,10 @@ body {
           flex-direction: column;
   gap: 10px;
   width: 42ch;
+  max-width: 70vw;
   text-align: center;
   margin-bottom: 60px;
-  padding: 25px;
+  padding: min(25px, 10px + 3vw);
   border: 1px solid black;
 }
 
@@ -583,4 +584,21 @@ body {
 .grid__works__square:nth-child(6) {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
+}
+
+.footer {
+  padding: 30px 15px 45px 15px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 15px;
+}
+
+.footer p:first-child {
+  -ms-grid-column-align: right;
+      justify-self: right;
 }

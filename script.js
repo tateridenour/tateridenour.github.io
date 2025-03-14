@@ -89,11 +89,13 @@ document.addEventListener('scroll', (e) => {
     const scrolled = window.scrollY || window.pageYOffset;
     // console.log(scrolled);
 
+    if (window.matchMedia("(min-width: 600px)").matches || grid.style.opacity === '1') { return; }
+
     if (scrolled == 0 && iconbarName.classList.contains('invisible')) {
         iconbarName.classList.remove('invisible');
     }
     if (scrolled != 0 && !iconbarName.classList.contains('invisible')) {
-        // iconbarName.classList.add('invisible');
+        iconbarName.classList.add('invisible');
     }
 })
 
