@@ -7,13 +7,15 @@
 
 html {
   font-size: 62.5%;
-  /* font-family: 'DM Sans', Arial, sans-serif; */
-  font-family: "DM Sans", Arial, sans-serif;
 }
 
 body {
   font-size: 1.6rem;
-  font-family: "DM Sans", Arial, sans-serif;
+  font-family: "Albert Sans", Arial, sans-serif;
+}
+
+b {
+  font-weight: 900;
 }
 
 #wrapper {
@@ -22,6 +24,10 @@ body {
   background-color: #eeeeee;
 }
 
+@font-face {
+  font-family: "VVDS Fifties Medium";
+  src: url("fonts/VVDSFifties-MedMed.otf");
+}
 #background {
   z-index: -1;
   position: absolute;
@@ -80,8 +86,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: min(1.9rem, 2.2vw + 0.8rem);
-  font-weight: 800;
+  font-size: 2.6rem;
+  letter-spacing: 0.5px;
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
@@ -90,6 +96,7 @@ body {
 #iconbar__name {
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
+  font-family: "VVDS Fifties Medium", sans-serif;
 }
 
 .invisible {
@@ -289,7 +296,7 @@ body {
   bottom: 15px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  z-index: 3;
+  z-index: 1;
 }
 
 .arrow {
@@ -450,7 +457,7 @@ body {
   border: 1px solid black;
 }
 
-.work-caption-text:last-child {
+.work-caption-text:nth-last-child(2) {
   margin-bottom: 0;
 }
 
@@ -612,7 +619,7 @@ body {
     font-size: 3rem;
   }
   .work-caption-text {
-    width: 70vw;
+    max-width: 77vw;
   }
   .work-first-wrapper {
     height: auto;
@@ -624,6 +631,33 @@ body {
     height: 85px;
   }
   #iconbar__name {
-    font-size: 3rem;
+    font-size: 4.3rem;
+  }
+  #grid__works {
+    width: 77vw;
+  }
+  #grid__works {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .circle {
+    width: 16px;
+    height: 16px;
+  }
+  #circle-wrapper {
+    gap: 25px;
+  }
+  .carousel__project {
+    gap: 18px;
+  }
+  .work {
+    max-width: min(1000px, 77vw);
+  }
+  .work-subcontainer {
+    max-width: min(1000px, 77vw);
+  }
+  .footer {
+    padding-bottom: 55px;
+    font-size: 3.5rem;
   }
 }

@@ -84,11 +84,13 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+// hiding logo text when scrolled
 const iconbarName = document.getElementById('iconbar__name');
 document.addEventListener('scroll', (e) => {
     const scrolled = window.scrollY || window.pageYOffset;
     // console.log(scrolled);
 
+    // disable effect if on desktop
     if (!window.matchMedia("(pointer:none), (pointer:coarse)").matches
     && window.matchMedia("(min-width: 600px)").matches
     || grid.style.opacity === '1') {
@@ -105,15 +107,19 @@ document.addEventListener('scroll', (e) => {
 
 
 const projects = document.querySelectorAll('.carousel__project');
-function updateCircles() {
-    const index = Array.prototype.indexOf.call(projects, document.querySelector('.carousel__transitioning'));
-    // function is called during transition
+function updateCircles(n) {
 
     const activeCircles = document.querySelectorAll('.circle.active');
     [...activeCircles].forEach(div => {
         div.classList.remove('active');
     });
-    document.querySelector(`.circle:nth-child(${index + 1})`).classList.add('active');
+    
+    if (n == undefined) {  // function is called during transition
+        const index = Array.prototype.indexOf.call(projects, document.querySelector('.carousel__transitioning'));
+        document.querySelector(`.circle:nth-child(${index + 1})`).classList.add('active');
+    } else {
+        document.querySelector(`.circle:nth-child(${n})`).classList.add('active');
+    }
 }
 document.querySelector(`.circle:nth-child(1)`).classList.add('active');
 
@@ -139,8 +145,6 @@ let n = 0;
 function toggleGrid() {
 
     if (grid.style.opacity === '1') {
-
-        console.log('sdfsf')
 
         // make grid invisible
         window.scrollTo(0, 0);
@@ -174,5 +178,6 @@ function setCarouselTo(n) {
         div.classList.remove('carousel__transitioning');
     });
     target.classList.add('carousel__focused');
+    updateCircles(n);
 
 }
