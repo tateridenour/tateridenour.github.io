@@ -84,8 +84,9 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// hiding logo text when scrolled
-const iconbarName = document.getElementById('iconbar__name');
+// hiding top bar when scrolled
+const iconbar = document.getElementById('iconbar');
+// const iconbarName = document.getElementById('iconbar__name');
 document.addEventListener('scroll', (e) => {
     const scrolled = window.scrollY || window.pageYOffset;
     // console.log(scrolled);
@@ -97,11 +98,11 @@ document.addEventListener('scroll', (e) => {
         return;
     }
 
-    if (scrolled == 0 && iconbarName.classList.contains('invisible')) {
-        iconbarName.classList.remove('invisible');
+    if (scrolled <= 0 && iconbar.classList.contains('invisible')) {
+        iconbar.classList.remove('invisible');
     }
-    if (scrolled != 0 && !iconbarName.classList.contains('invisible')) {
-        iconbarName.classList.add('invisible');
+    if (scrolled > 0 && !iconbar.classList.contains('invisible')) {
+        iconbar.classList.add('invisible');
     }
 })
 

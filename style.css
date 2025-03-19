@@ -66,6 +66,8 @@ b {
   left: 0;
   right: 0;
   z-index: 3;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
 }
 
 .iconbar__icon {
@@ -94,8 +96,6 @@ b {
 }
 
 #iconbar__name {
-  -webkit-transition: opacity 0.5s;
-  transition: opacity 0.5s;
   font-family: "VVDS Fifties Medium", sans-serif;
 }
 
@@ -114,11 +114,11 @@ b {
   scale: 75%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr calc((1.5vw + 40px) / 20) 1fr calc((1.5vw + 40px) / 20) 1fr;
+  -ms-grid-columns: 1fr calc((1.5vw + 40px) / 30) 1fr calc((1.5vw + 40px) / 30) 1fr;
   grid-template-columns: repeat(3, 1fr);
-  -ms-grid-rows: 1fr calc((1.5vw + 40px) / 20) 1fr calc((1.5vw + 40px) / 20) 1fr;
+  -ms-grid-rows: 1fr calc((1.5vw + 40px) / 30) 1fr calc((1.5vw + 40px) / 30) 1fr;
   grid-template-rows: repeat(3, 1fr);
-  gap: calc((1.5vw + 40px) / 20);
+  gap: calc((1.5vw + 40px) / 30);
   -ms-grid-column-align: end;
       justify-self: end;
   cursor: pointer;
@@ -598,7 +598,7 @@ b {
 }
 
 .footer {
-  padding: 30px 15px 45px 15px;
+  padding: 30px 15px 70px 15px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -614,24 +614,28 @@ b {
       justify-self: right;
 }
 
-@media (pointer: none), (pointer: coarse) {
+@media (max-width: 600px) {
   body {
-    font-size: 3rem;
+    font-size: 1.3rem;
   }
   .work-caption-text {
     max-width: 77vw;
+    margin-bottom: 0;
+    padding: 15px;
   }
   .work-first-wrapper {
     height: auto;
-    padding-top: 120px;
-    padding-bottom: 45px;
+    padding-top: 56px;
+  }
+  #iconbar {
+    padding: 7.5px;
   }
   .iconbar__icon {
-    width: 85px;
-    height: 85px;
+    width: 30px;
+    height: 30px;
   }
   #iconbar__name {
-    font-size: 4.3rem;
+    font-size: 1.9rem;
   }
   #grid__works {
     width: 77vw;
@@ -641,14 +645,14 @@ b {
     grid-template-columns: repeat(2, 1fr);
   }
   .circle {
-    width: 16px;
-    height: 16px;
+    width: 6px;
+    height: 6px;
   }
   #circle-wrapper {
-    gap: 25px;
+    gap: 10.5px;
   }
   .carousel__project {
-    gap: 18px;
+    gap: 8px;
   }
   .work {
     max-width: min(1000px, 77vw);
@@ -657,9 +661,10 @@ b {
     max-width: min(1000px, 77vw);
   }
   .footer {
-    padding-bottom: 55px;
+    padding-top: 20px;
+    padding-bottom: 50px;
   }
   .arrow svg {
-    height: calc(1.5vw + 45px);
+    height: calc(0.7vw + 20px);
   }
 }
