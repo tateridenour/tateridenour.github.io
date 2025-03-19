@@ -12,6 +12,7 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Albert Sans", Arial, sans-serif;
+  background-color: #eeeeee;
 }
 
 b {
@@ -21,7 +22,6 @@ b {
 #wrapper {
   width: 100%;
   overflow-x: hidden;
-  background-color: #eeeeee;
 }
 
 @font-face {
@@ -169,12 +169,12 @@ b {
   -ms-grid-column: 5;
 }
 
-#iconbar__grid img {
+#iconbar__grid svg {
   width: 100%;
   position: relative;
 }
 
-#iconbar__grid:hover img {
+#iconbar__grid:hover svg {
   -webkit-animation: bounce 0.25s forwards;
           animation: bounce 0.25s forwards;
 }
@@ -202,47 +202,47 @@ b {
     bottom: 0;
   }
 }
-#iconbar__grid:hover img:nth-child(1) {
+#iconbar__grid:hover svg:nth-child(1) {
   -webkit-animation-delay: 0s;
           animation-delay: 0s;
 }
 
-#iconbar__grid:hover img:nth-child(2) {
+#iconbar__grid:hover svg:nth-child(2) {
   -webkit-animation-delay: 0.05s;
           animation-delay: 0.05s;
 }
 
-#iconbar__grid:hover img:nth-child(3) {
+#iconbar__grid:hover svg:nth-child(3) {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
 
-#iconbar__grid:hover img:nth-child(4) {
+#iconbar__grid:hover svg:nth-child(4) {
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
 }
 
-#iconbar__grid:hover img:nth-child(5) {
+#iconbar__grid:hover svg:nth-child(5) {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 
-#iconbar__grid:hover img:nth-child(6) {
+#iconbar__grid:hover svg:nth-child(6) {
   -webkit-animation-delay: 0.25s;
           animation-delay: 0.25s;
 }
 
-#iconbar__grid:hover img:nth-child(7) {
+#iconbar__grid:hover svg:nth-child(7) {
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
 
-#iconbar__grid:hover img:nth-child(8) {
+#iconbar__grid:hover svg:nth-child(8) {
   -webkit-animation-delay: 0.35s;
           animation-delay: 0.35s;
 }
 
-#iconbar__grid:hover img:nth-child(9) {
+#iconbar__grid:hover svg:nth-child(9) {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
@@ -343,7 +343,7 @@ b {
   opacity: 0.15;
 }
 
-.arrow img {
+.arrow svg {
   height: calc(1vw + 30px);
   padding-left: min(35px, 5vw);
   padding-right: min(130px, 14vw);
@@ -355,7 +355,7 @@ b {
           transition-timing-function: ease-out;
 }
 
-.arrow:hover img {
+.arrow:hover svg {
   right: 10%;
 }
 
@@ -658,6 +658,8 @@ b {
   }
   .footer {
     padding-bottom: 55px;
-    font-size: 3.5rem;
+  }
+  .arrow svg {
+    height: calc(1.5vw + 45px);
   }
 }

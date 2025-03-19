@@ -10,6 +10,7 @@ html {
 body {
     font-size: 1.6rem;
     font-family: 'Albert Sans', Arial, sans-serif;
+    background-color: #eeeeee;
 }
 b {
     font-weight: 900;
@@ -17,7 +18,7 @@ b {
 #wrapper {
     width: 100%;
     overflow-x: hidden;
-    background-color: #eeeeee;
+    // background-color: #eeeeee;
 }
 
 @font-face {
@@ -108,11 +109,11 @@ b {
 
     cursor: pointer;
 }
-#iconbar__grid img {
+#iconbar__grid svg {
     width: 100%;
     position: relative;
 }
-#iconbar__grid:hover img {
+#iconbar__grid:hover svg {
     animation: bounce 0.25s forwards;
 }
 
@@ -123,7 +124,7 @@ b {
 }
 
 @for $i from 1 through 9 {
-    #iconbar__grid:hover img:nth-child(#{$i}) {
+    #iconbar__grid:hover svg:nth-child(#{$i}) {
       animation-delay: ($i - 1) * 0.05s;
     }
 }
@@ -201,7 +202,7 @@ b {
 .arrow:hover .arrow-gradient {
     opacity: 0.15;
 }
-.arrow img {
+.arrow svg {
     height: calc(1vw + 30px);
     padding-left: min(35px, 5vw);
     padding-right: min(130px, 14vw);
@@ -212,7 +213,7 @@ b {
     transition: right 0.25s;
     transition-timing-function: ease-out;
 }
-.arrow:hover img {
+.arrow:hover svg {
     right: 10%;
 }
 
@@ -438,7 +439,10 @@ b {
 
     .footer {
         padding-bottom: 55px;
-        font-size: 3.5rem;
+    }
+
+    .arrow svg {
+        height: calc(1.5vw + 45px);
     }
 
 }
