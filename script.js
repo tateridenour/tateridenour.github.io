@@ -137,7 +137,11 @@ let n = 0;
     div1.setAttribute('onClick', `setCarouselTo(${n}); toggleGrid();`);
 
     const div2 = document.createElement('div');
-    div2.style.backgroundImage = `url('${project.querySelector('img.preview').getAttribute('src')}')`
+
+    const projectDirectory = project.querySelector('img.preview').getAttribute('src').split('/').slice(-2, -1)[0]
+    // example: "works/fullsize/typographics/1.webp". second to last with split "/"
+    
+    div2.style.backgroundImage = `url('works/small-square/${projectDirectory}.webp')`
     div2.classList.add('grid__works__image');
     div1.appendChild(div2);
     gridWorks.appendChild(div1);

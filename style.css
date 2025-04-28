@@ -11,7 +11,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Albert Sans", Arial, sans-serif;
+  font-family: "Fabriga Light", Arial, sans-serif;
   background-color: #eeeeee;
 }
 
@@ -28,6 +28,28 @@ b {
   font-family: "VVDS Fifties Medium";
   src: url("fonts/VVDSFifties-MedMed.otf");
 }
+@font-face {
+  font-family: "Fabriga Light";
+  src: url("fonts/Fabriga-Light.otf");
+}
+@font-face {
+  font-family: "Fabriga Medium";
+  src: url("fonts/Fabriga-Medium.otf");
+}
+@font-face {
+  font-family: "Fabriga Italic";
+  src: url("fonts/Fabriga-LightItalic.otf");
+}
+b {
+  font-family: "Fabriga Medium", Arial, sans-serif;
+  font-weight: 500;
+}
+
+i {
+  font-family: "Fabriga Italic", Arial, sans-serif;
+  font-style: normal;
+}
+
 #background {
   z-index: -1;
   position: absolute;
@@ -501,9 +523,9 @@ b {
   display: -ms-grid;
   display: grid;
   gap: 7.5px;
-  -ms-grid-columns: 1fr 7.5px 1fr 7.5px 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  width: clamp(500px, 60vw, 750px);
+  -ms-grid-columns: 1fr 7.5px 1fr 7.5px 1fr 7.5px 1fr 7.5px 1fr;
+  grid-template-columns: repeat(5, 1fr);
+  width: clamp(750px, 85vw, 1500px);
   margin: 30px;
 }
 
@@ -638,7 +660,7 @@ b {
     font-size: 1.9rem;
   }
   #grid__works {
-    width: 77vw;
+    width: 60vw;
   }
   #grid__works {
     -ms-grid-columns: (1fr)[2];
