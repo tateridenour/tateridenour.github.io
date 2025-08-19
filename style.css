@@ -20,6 +20,10 @@ b {
   font-weight: 900;
 }
 
+a {
+  text-decoration: none;
+}
+
 #wrapper {
   width: 100%;
   overflow-x: hidden;
