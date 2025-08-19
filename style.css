@@ -11,6 +11,7 @@ html {
 
 body {
   font-size: 1.6rem;
+  line-height: 1.25;
   font-family: "Fabriga Light", Arial, sans-serif;
   background-color: #eeeeee;
 }
