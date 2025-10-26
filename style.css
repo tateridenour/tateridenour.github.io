@@ -11,17 +11,12 @@ html {
 
 body {
   font-size: 1.6rem;
-  line-height: 1.25;
   font-family: "Fabriga Light", Arial, sans-serif;
   background-color: #eeeeee;
 }
 
 b {
   font-weight: 900;
-}
-
-a {
-  text-decoration: none;
 }
 
 #wrapper {
@@ -479,7 +474,7 @@ i {
   width: 42ch;
   max-width: 70vw;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   padding: min(25px, 10px + 3vw);
   border: 1px solid black;
 }
