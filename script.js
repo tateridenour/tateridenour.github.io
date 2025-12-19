@@ -59,7 +59,7 @@ function scrollCarouselFinalize(focused, transitioning) {
 
 function scrollToTop() {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
-    if (c > 0) {
+    if (c > 1) {
         window.requestAnimationFrame(scrollToTop);
         window.scrollTo(0, c - c / 6);
     }
@@ -184,5 +184,6 @@ function setCarouselTo(n) {
     });
     target.classList.add('carousel__focused');
     updateCircles(n);
+
 
 }
